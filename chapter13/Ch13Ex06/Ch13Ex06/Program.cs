@@ -35,6 +35,9 @@ namespace Ch13Ex06
             try
             {
                 dynamic firstResult = GetValue();
+
+
+
                 dynamic secondResult = GetValue();
                 WriteLine($"first result is: {firstResult.ToString()}");
                 WriteLine($"second result is: {secondResult.ToString()}");
