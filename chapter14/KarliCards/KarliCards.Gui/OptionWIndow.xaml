@@ -19,6 +19,11 @@
                    FontWeight="Bold" FontFamily="Times New Roman"/>
         </Canvas>
         <Canvas Grid.Row="1" Background="Black">
+            <Canvas.Resources>
+                <local:NumberOfPlayers x:Key="numberOfPlayersData" />
+
+            </Canvas.Resources>
+            
             <TabControl Canvas.Top="2" Canvas.Left="10" Height="208" Width="408"  Grid.Row="1" Grid.RowSpan="2">
                 <TabItem Header="Game">
                     <Grid Background="#FFE5E5E5">
@@ -28,10 +33,10 @@
                         <Label Content="Number of players" HorizontalAlignment="Left"
                                 Margin="10,54,0,0" VerticalAlignment="Top" />
                         <ComboBox HorizontalAlignment="Left" Margin="196,58,0,0"
-                                VerticalAlignment="Top" Width="86" Name="numberOfPlayersComboBox" SelectedIndex="0" >
-                            <ComboBoxItem>2</ComboBoxItem>
-                            <ComboBoxItem>3</ComboBoxItem>
-                            <ComboBoxItem>4</ComboBoxItem>
+                                VerticalAlignment="Top" Width="86" Name="numberOfPlayersComboBox" SelectedIndex="0" 
+                                  IsEnabled="{Binding ElementName=playAgainstComputerCheck, Path=IsChecked}" 
+                                  ItemsSource="{Binding Source={StaticResource numberOfPlayersData}}">
+                           
                         </ComboBox>
 
                     </Grid>
@@ -41,11 +46,11 @@
                         <Label Content="Skill Level" HorizontalAlignment="Left"
                                 Margin="10,10,0,0" VerticalAlignment="Top"/>
                         <RadioButton Content="Dumb" HorizontalAlignment="Left"
-                                Margin="37,41,0,0" VerticalAlignment="Top" IsChecked="True" Name="dumbAIRadioButton"/>
+                                Margin="37,41,0,0" VerticalAlignment="Top" IsChecked="True" Name="dumbAIRadioButton" Checked="dumbAIRadioButton_Checked"/>
                         <RadioButton Content="Good" HorizontalAlignment="Left"
-                                Margin="37,62,0,0" VerticalAlignment="Top" Name="goodAIRadioButton"/>
+                                Margin="37,62,0,0" VerticalAlignment="Top" Name="goodAIRadioButton" Checked="goodAIRadioButton_Checked"/>
                         <RadioButton Content="Cheats" HorizontalAlignment="Left"
-                                Margin="37,83,0,0" VerticalAlignment="Top" Name="cheatingAIRadioButton"/>
+                                Margin="37,83,0,0" VerticalAlignment="Top" Name="cheatingAIRadioButton" Checked="cheatingAIRadioButton_Checked"/>
 
                     </Grid>
                 </TabItem>
@@ -54,8 +59,8 @@
         </Canvas>
         
         <StackPanel Grid.Row="3" Orientation="Horizontal" FlowDirection="RightToLeft">
-            <Button Content="_Cancel" Height="22" Width="75" Margin="10,0,0,0" Name="cancelButton"></Button>
-            <Button Content="_Ok" Height="22" Width="75" Margin="10,0,0,0" Name="okButton"></Button>
+            <Button Content="_Cancel" Height="22" Width="75" Margin="10,0,0,0" Name="cancelButton" Click="cancelButton_Click"></Button>
+            <Button Content="_Ok" Height="22" Width="75" Margin="10,0,0,0" Name="okButton" Click="okButton_Click"></Button>
         </StackPanel>
 
     </Grid>
