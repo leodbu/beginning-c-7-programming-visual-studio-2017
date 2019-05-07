@@ -4,12 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace KarliCards.Gui
 {
     [Serializable]
     public class GameOptions
     {
+
+        private ObservableCollection<string> playerNames = new ObservableCollection<string>();
+        public List<string> SelectedPlayers { get; set; } = new List<string>();
         private bool playAgainstComputer = true;
         private int numberOfPlayers = 2;
         private ComputerSkillLevel computerSkill = ComputerSkillLevel.Dumb;
@@ -37,6 +41,28 @@ namespace KarliCards.Gui
                 computerSkill = value;
                 OnPropertyChanged(nameof(ComputerSkill));
             }
+        }
+
+
+        public ObservableCollection<string> PlayerNames
+        {
+            get
+            {
+                return playerNames;
+            }
+            set
+            {
+                playerNames = value;
+                OnPropertyChanged("PlayerNames");
+            }
+        }
+
+        public void AddPlayer(string playerName)
+        {
+            if (playerNames.Contains(playerName))
+                return;
+            playerNames.Add(playerName);
+            OnPropertyChanged("PlayerNames");
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
