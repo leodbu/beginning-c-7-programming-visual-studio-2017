@@ -16,8 +16,12 @@
         <Canvas Grid.Row="0" Background="#C40D42">
             <Image Height="56" Canvas.Left="0" Canvas.Top="0" Stretch="UniformToFill" Source=".\Images\Banner.png"/>
             <Label Content="New Game" Canvas.Right="10" Canvas.Top="13" Foreground="#FFF7EFEF" FontSize="24"
-                   FontWeight="Bold" FontFamily="Times New Roman"/>
+                   FontWeight="Bold" FontFamily="Times New Roman"
+            />
+
         </Canvas>
+        
+        
 
         <Canvas Grid.Row="1" Background="Black"></Canvas>
 
@@ -25,7 +29,9 @@
         <Label Content="New Player" HorizontalAlignment="Left" Height="28" Margin="274,19,0,0" Grid.Row="2" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.506,-0.062"/>
         <ListBox x:Name="playerNamesListBox" HorizontalAlignment="Left" Height="131" Margin="22,47,0,0" Grid.Row="2" 
                  VerticalAlignment="Top" Width="236" 
-                 ItemsSource="{Binding Path=PlayerNames}" SelectionChanged="PlayerNamesListBox_SelectionChanged"/>
+                 ItemsSource="{Binding Path=PlayerNames}" SelectionChanged="PlayerNamesListBox_SelectionChanged"
+        />
+        
         <TextBox x:Name="newPlayerTextBox" HorizontalAlignment="Left" Height="23" Margin="274,47,0,0" Grid.Row="2" 
                  TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="155"/>
 
